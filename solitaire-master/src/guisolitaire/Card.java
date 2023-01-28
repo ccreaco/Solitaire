@@ -9,8 +9,6 @@ class Card {
 	
 	/**
 	 * Construct a new card with specified Suit and Value
-	 * @param suit the Suit for the card to have
-	 * @param value the Value for the card to have
 	 */
 	Card(Suit suit, Value value) {
 		this.suit = suit;
@@ -19,7 +17,6 @@ class Card {
 	
 	/**
 	 * Get the card's Suit
-	 * @return the card's Suit
 	 */
 	Suit getSuit() {
 		return suit;
@@ -27,7 +24,6 @@ class Card {
 	
 	/**
 	 * Get the card's value
-	 * @return the card's Value
 	 */
 	Value getValue() {
 		return value;
@@ -35,7 +31,6 @@ class Card {
 	
 	/**
 	 * Get the card's color
-	 * @return the card's color
 	 */
 	CardColor getColor() {
 		if (suit == Suit.HEART || suit == Suit.DIAMOND) {
@@ -68,17 +63,13 @@ class Card {
 	}
 	
 	/**
-	 * Get whether this card is selected
-	 * @return true if this card is selected
-	 */
+	 * Get whether this card is selected	 */
 	boolean isSelected() {
 		return selected;
 	}
 	
 	/**
-	 * Get the name of this card 
-	 * @return the name of the card in the format [value]of[suit]s
-	 */
+	 * Get the name of this card 	 */
 	String getName() {
 		return value.toString().toLowerCase() + "of" + suit.toString().toLowerCase() + "s";
 	}

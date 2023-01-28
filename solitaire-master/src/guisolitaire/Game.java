@@ -42,8 +42,6 @@ public class Game {
 	 * The main constructor which initialises the game in its entirety and handles
 	 * all the card movement before drawing the game
 	 * 
-	 * @param gc the GraphicsContext to write to, should be gotten from a Canvas
-	 *           object.
 	 */
 	Game(GraphicsContext gc) {
 		this.gc = gc;
@@ -91,9 +89,6 @@ public class Game {
 
 	/**
 	 * Swap the card at i1 in the pack with the card at i2
-	 * 
-	 * @param i1 the index of the first card to be swapped
-	 * @param i2 the index of the second card to be swapped
 	 */
 	public void swapCard(int i1, int i2) {
 		Card temp = hand.get(i1);
@@ -154,10 +149,6 @@ public class Game {
 	/**
 	 * Check whether placing the child on the parent would be a valid move according
 	 * to the board rules
-	 * 
-	 * @param parent the parent Card to check
-	 * @param child  the child Card to check
-	 * @return true if the move is valid
 	 */
 	public boolean isValidBoardMove(Card parent, Card child) {
 		// Explicit if statements preserved for clarity
@@ -176,10 +167,6 @@ public class Game {
 	/**
 	 * Check whether placing the child on the parent would be a valid move according
 	 * to the foundation rules
-	 * 
-	 * @param parent the parent Card to check
-	 * @param child  the child Card to check
-	 * @return true if the move is valid
 	 */
 	public boolean isValidFoundationsMove(Card parent, Card child) {
 		// Explicit if statements preserved for clarity
@@ -198,8 +185,6 @@ public class Game {
 	/**
 	 * Move the selected card to the specified Stack TODO: Make more efficient than
 	 * checking each Stack for the presence of the selected card
-	 * 
-	 * @param stack the Stack to move to
 	 */
 	public void moveCards(Stack<Card> stack) {
 		for (Card card : selected) {
@@ -295,10 +280,6 @@ public class Game {
 
 	/**
 	 * Draw the specified Card to the game canvas
-	 * 
-	 * @param card the card to draw
-	 * @param x    the x coordinate to draw at
-	 * @param y    the y coordinate to draw at
 	 */
 	private void drawCard(Card card, double x, double y) {
 		gc.drawImage(imageCache.get(card.getName()), x, y, CARD_WIDTH, CARD_HEIGHT);
@@ -311,9 +292,7 @@ public class Game {
 
 	/**
 	 * Draw a cardback to the game canvas
-	 * 
-	 * @param x the x coordinate to draw at
-	 * @param y the y coordinate to draw at
+
 	 */
 	private void drawCardBack(double x, double y) {
 		gc.drawImage(imageCache.get("cardback"), x, y, CARD_WIDTH, CARD_HEIGHT);
@@ -321,9 +300,6 @@ public class Game {
 
 	/**
 	 * Draw an empty card space to the game canvas
-	 * 
-	 * @param x the x coordinate to draw at
-	 * @param y the y coordinate to draw at
 	 */
 	private void drawEmpty(double x, double y) {
 		gc.setStroke(Color.WHITE);
@@ -347,8 +323,6 @@ public class Game {
 
 	/**
 	 * Handle the mouse being clicked
-	 * 
-	 * @param me the MouseEvent passed from the GUISolitaire class
 	 */
 	void handleMouseClicked(MouseEvent me) {
 		double x = me.getX(), y = me.getY();
@@ -450,8 +424,6 @@ public class Game {
 
 	/**
 	 * Set the selected variable to be equal to a card
-	 * 
-	 * @param card the card to select
 	 */
 	private void select(Card card) {
 		card.toggleSelected();
@@ -498,9 +470,6 @@ public class Game {
 
 	/**
 	 * Handles the board being clicked
-	 * 
-	 * @param indexX the column on the board clicked
-	 * @param indexY the card in the column clicked
 	 */
 	private void boardClicked(int indexX, int indexY) {
 		Stack<Card> stack = board.get(indexX);
@@ -694,8 +663,6 @@ public class Game {
 
 	/**
 	 * Handle the foundations being clicked
-	 * 
-	 * @param index the index of the foundation clicked
 	 */
 	private void foundationsClicked(int index) {
 		Stack<Card> stack = foundations.get(index);
@@ -767,8 +734,6 @@ public class Game {
 
 	/**
 	 * Perform final cleanup for the handleMouseClicked() function
-	 * 
-	 * @param me the MouseEvent passed by handleMouseClicked()
 	 */
 	private void finish(MouseEvent me) {
 		revealCards();
