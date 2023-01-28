@@ -1,0 +1,9 @@
+/build/
+/dist/
+/nbproject/
+/test/
+/build.xml
+/manifest.mf
+/out/
+/.idea/
+/GUISolitaire.iml
